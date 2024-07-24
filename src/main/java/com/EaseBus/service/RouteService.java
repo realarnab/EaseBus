@@ -1,2 +1,7 @@
-package com.EaseBus.service;public interface RouteService {
+package com.EaseBus.service;
+
+import com.EaseBus.model.Route;
+
+public interface RouteService {
+    Route addNewRoute(Route route);
 }
