@@ -3,6 +3,7 @@ package com.EaseBus.model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.annotation.Nonnull;
 import jakarta.persistence.*;
+import lombok.Data;
 import lombok.extern.apachecommons.CommonsLog;
 import org.antlr.v4.runtime.misc.NotNull;
 import org.aspectj.bridge.IMessage;
@@ -13,6 +14,7 @@ import java.time.LocalTime;
 
 @Entity
 @Table(name = "buses")
+@Data
 public class Bus {
 
     @Id
