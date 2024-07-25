@@ -26,4 +26,9 @@ public class BusServiceImpl implements BusService {
     public Bus getById(int busId) {
         return busRepository.findById(busId).get();
     }
+
+    @Override
+    public void deleteBusById(int busId) {
+        busRepository.deleteById(busId);
+    }
 }
