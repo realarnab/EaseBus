@@ -27,4 +27,10 @@ public class BusController {
         List<Bus> allBuses = busService.getAllBuses();
         return new ResponseEntity<>(allBuses,HttpStatus.OK);
     }
+
+    @GetMapping("/{busId}")
+    public ResponseEntity<?> getBusById(@PathVariable int busId){
+        Bus byId = busService.getById(busId);
+        return new ResponseEntity<>(byId,HttpStatus.OK);
+    }
 }
