@@ -9,4 +9,6 @@ public interface BusService {
     Bus addNewBus(Bus bus);
 
     List<Bus> getAllBuses();
+
+    Bus getById(int busId);
 }
