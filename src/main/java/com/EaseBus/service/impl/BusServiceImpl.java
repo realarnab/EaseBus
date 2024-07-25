@@ -6,6 +6,8 @@ import com.EaseBus.service.BusService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class BusServiceImpl implements BusService {
     @Autowired
@@ -13,5 +15,10 @@ public class BusServiceImpl implements BusService {
     @Override
     public Bus addNewBus(Bus bus) {
         return busRepository.save(bus);
+    }
+
+    @Override
+    public List<Bus> getAllBuses() {
+        return busRepository.findAll();
     }
 }
