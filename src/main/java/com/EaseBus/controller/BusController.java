@@ -33,4 +33,10 @@ public class BusController {
         Bus byId = busService.getById(busId);
         return new ResponseEntity<>(byId,HttpStatus.OK);
     }
+
+    @DeleteMapping("/delete/{busId}")
+    public ResponseEntity<?> deleteBus(@PathVariable int busId){
+        busService.deleteBusById(busId);
+        return new ResponseEntity<>("Bus is deleted successfully",HttpStatus.OK);
+    }
 }
