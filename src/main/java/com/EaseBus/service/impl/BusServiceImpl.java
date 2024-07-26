@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BusServiceImpl implements BusService {
@@ -30,5 +31,27 @@ public class BusServiceImpl implements BusService {
     @Override
     public void deleteBusById(int busId) {
         busRepository.deleteById(busId);
+    }
+
+    @Override
+    public Bus update(int busId, Bus bus) {
+        Optional<Bus> byId = busRepository.findById(busId);
+        if (byId.isPresent()){
+            Bus updated = busRepository.updateBusById(busId,
+                    bus.getBusName(),
+                    bus.getDriverName(),
+                    bus.getBusType(),
+                    bus.getBusRegNo(),
+                    bus.getRouteFrom(),
+                    bus.getRouteTo(),
+                    bus.getArrivalTime(),
+                    bus.getDepartureTime(),
+                    bus.getSeats(),
+                    bus.getAvailableSeats(),
+                    bus.getFarePerSeat(),
+                    bus.getBusJourneyDate());
+            return updated;
+        }
+        return null;
     }
 }

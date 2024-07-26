@@ -13,4 +13,6 @@ public interface BusService {
     Bus getById(int busId);
 
     void deleteBusById(int busId);
+
+    Bus update(int busId, Bus bus);
 }
