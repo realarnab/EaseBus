@@ -39,4 +39,10 @@ public class BusController {
         busService.deleteBusById(busId);
         return new ResponseEntity<>("Bus is deleted successfully",HttpStatus.OK);
     }
+
+    @PutMapping("/update/{busId}")
+    public ResponseEntity<?> updateBus(@PathVariable int busId,@RequestBody Bus bus){
+        Bus updated = busService.update(busId, bus);
+        return new ResponseEntity<>(updated,HttpStatus.OK);
+    }
 }
