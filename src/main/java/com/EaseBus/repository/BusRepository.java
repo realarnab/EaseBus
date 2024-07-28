@@ -4,10 +4,12 @@ import com.EaseBus.model.Bus;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-
+import java.util.Optional;
+@Repository
 public interface BusRepository extends JpaRepository<Bus,Integer> {
     @Query("UPDATE Bus b SET " +
             "b.busName = :busName, " +
@@ -36,4 +38,6 @@ public interface BusRepository extends JpaRepository<Bus,Integer> {
                       @Param("availableSeats") Integer availableSeats,
                       @Param("farePerSeat") Integer farePerSeat,
                       @Param("busJourneyDate") LocalDate busJourneyDate);
+
+    public Optional<Bus> findByBusName(String busName);
 }
