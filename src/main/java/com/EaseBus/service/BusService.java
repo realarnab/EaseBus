@@ -15,4 +15,6 @@ public interface BusService {
     void deleteBusById(int busId);
 
     Bus update(int busId, Bus bus);
+
+    Bus getBusByBusName(String busName);
 }

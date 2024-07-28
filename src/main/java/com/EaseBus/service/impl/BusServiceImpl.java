@@ -54,4 +54,13 @@ public class BusServiceImpl implements BusService {
         }
         return null;
     }
+
+    @Override
+    public Bus getBusByBusName(String busName) {
+        Optional<Bus> busOptional = busRepository.findByBusName(busName);
+        if (busOptional.isPresent()){
+            return busOptional.get();
+        }
+        return null;
+    }
 }
