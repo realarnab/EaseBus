@@ -40,4 +40,6 @@ public interface BusRepository extends JpaRepository<Bus,Integer> {
                       @Param("busJourneyDate") LocalDate busJourneyDate);
 
     public Optional<Bus> findByBusName(String busName);
+
+    Optional<Bus> findByBusType(String busType);
 }
