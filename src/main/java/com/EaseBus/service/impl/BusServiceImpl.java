@@ -63,4 +63,13 @@ public class BusServiceImpl implements BusService {
         }
         return null;
     }
+
+    @Override
+    public Bus getBusByType(String busType) {
+        Optional<Bus> byBusType = busRepository.findByBusType(busType);
+        if (byBusType.isPresent()){
+            return byBusType.get();
+        }
+        return null;
+    }
 }

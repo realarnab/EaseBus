@@ -17,4 +17,6 @@ public interface BusService {
     Bus update(int busId, Bus bus);
 
     Bus getBusByBusName(String busName);
+
+    Bus getBusByType(String busType);
 }
