@@ -51,4 +51,10 @@ public class BusController {
         Bus bus = busService.getBusByBusName(busName);
         return new ResponseEntity<>(bus,HttpStatus.OK);
     }
+
+    @GetMapping("/byBusType/{busType}")
+    public ResponseEntity<?> getBusByBusType(@PathVariable String busType){
+        Bus bus = busService.getBusByType(busType);
+        return new ResponseEntity<>(bus,HttpStatus.OK);
+    }
 }
