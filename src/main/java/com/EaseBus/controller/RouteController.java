@@ -5,10 +5,9 @@ import com.EaseBus.service.RouteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/routes")
@@ -20,5 +19,10 @@ public class RouteController {
     public ResponseEntity<?> addRoute(@RequestBody Route route){
         Route newRoute = routeService.addNewRoute(route);
         return new ResponseEntity<>(newRoute, HttpStatus.CREATED);
+    }
+    @GetMapping()
+    public ResponseEntity<?> getAllRoute(){
+        List<Route> all = routeService.getAll();
+        return new ResponseEntity<>(all,HttpStatus.OK);
     }
 }
