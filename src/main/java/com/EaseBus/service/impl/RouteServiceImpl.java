@@ -6,6 +6,8 @@ import com.EaseBus.service.RouteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class RouteServiceImpl implements RouteService {
     @Autowired
@@ -13,5 +15,10 @@ public class RouteServiceImpl implements RouteService {
     @Override
     public Route addNewRoute(Route route) {
         return routeRepository.save(route);
+    }
+
+    @Override
+    public List<Route> getAll() {
+        return routeRepository.findAll();
     }
 }
