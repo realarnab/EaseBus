@@ -1,5 +1,6 @@
 package com.EaseBus.service.impl;
 
+import com.EaseBus.exceptions.BusNotFoundException;
 import com.EaseBus.model.Bus;
 import com.EaseBus.repository.BusRepository;
 import com.EaseBus.service.BusService;
@@ -25,7 +26,7 @@ public class BusServiceImpl implements BusService {
 
     @Override
     public Bus getById(int busId) {
-        return busRepository.findById(busId).get();
+        return busRepository.findById(busId).orElseThrow(()-> new BusNotFoundException("No Bus Found with id: "+busId));
     }
 
     @Override
