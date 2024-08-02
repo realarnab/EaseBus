@@ -31,7 +31,10 @@ public class BusServiceImpl implements BusService {
 
     @Override
     public void deleteBusById(int busId) {
-        busRepository.deleteById(busId);
+        Optional<Bus> bus = busRepository.findById(busId);
+        if (bus.isPresent()) {
+            busRepository.deleteById(busId);
+        }
     }
 
     @Override
