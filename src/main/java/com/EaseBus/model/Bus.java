@@ -51,4 +51,7 @@ public class Bus {
     @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)//set the time as per indian standard time
     private LocalDate busJourneyDate;
 
+    @ManyToOne
+    private Route route;
+
 }
