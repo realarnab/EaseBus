@@ -15,4 +15,9 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(e.getMessage()+webRequest.getDescription(true), HttpStatus.NOT_FOUND);
     }
 
+    @ExceptionHandler(RouteNotFoundException.class)
+    public ResponseEntity<?> routeNotFoundHandler(RouteNotFoundException e,WebRequest webRequest){
+        return new ResponseEntity<>(e.getMessage()+webRequest.getDescription(true),HttpStatus.NOT_FOUND);
+    }
+
 }
