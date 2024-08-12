@@ -52,6 +52,7 @@ public class Bus {
     private LocalDate busJourneyDate;
 
     @ManyToOne
+    @JoinColumn(name = "route_id")
     private Route route;
 
 }
