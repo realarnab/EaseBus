@@ -1,5 +1,6 @@
 package com.EaseBus.controller;
 
+import com.EaseBus.exceptions.RouteNotFoundException;
 import com.EaseBus.model.Route;
 import com.EaseBus.service.RouteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,5 +25,10 @@ public class RouteController {
     public ResponseEntity<?> getAllRoute(){
         List<Route> all = routeService.getAll();
         return new ResponseEntity<>(all,HttpStatus.OK);
+    }
+    @DeleteMapping("/delete/{routeId}")
+    public ResponseEntity<?> deleteRoute(@PathVariable int routeId) throws RouteNotFoundException {
+        routeService.deleteRouteById(routeId);
+        return new ResponseEntity<>("Route deleted successfully",HttpStatus.OK);
     }
 }
