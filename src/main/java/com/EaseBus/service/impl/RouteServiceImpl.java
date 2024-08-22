@@ -1,5 +1,6 @@
 package com.EaseBus.service.impl;
 
+import com.EaseBus.exceptions.RouteNotFoundException;
 import com.EaseBus.model.Route;
 import com.EaseBus.repository.RouteRepository;
 import com.EaseBus.service.RouteService;
@@ -20,5 +21,13 @@ public class RouteServiceImpl implements RouteService {
     @Override
     public List<Route> getAll() {
         return routeRepository.findAll();
+    }
+
+    @Override
+    public void deleteRouteById(int routeId) throws RouteNotFoundException {
+        Route route = routeRepository.findById(routeId).orElseThrow(() -> new RouteNotFoundException("Route Not Found"));
+        if (route!=null){
+            routeRepository.deleteById(routeId);
+        }
     }
 }
