@@ -31,4 +31,8 @@ public class RouteController {
         routeService.deleteRouteById(routeId);
         return new ResponseEntity<>("Route deleted successfully",HttpStatus.OK);
     }
+    @PutMapping("/update/{routeId}")
+    public ResponseEntity<?> updateRoute(@PathVariable Integer routeId,@RequestBody Route route){
+        routeService.updateRouteById(routeId);
+    }
 }

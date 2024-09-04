@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class RouteServiceImpl implements RouteService {
@@ -28,6 +29,14 @@ public class RouteServiceImpl implements RouteService {
         Route route = routeRepository.findById(routeId).orElseThrow(() -> new RouteNotFoundException("Route Not Found"));
         if (route!=null){
             routeRepository.deleteById(routeId);
+        }
+    }
+
+    @Override
+    public Route updateRouteById(Integer routeId) throws RouteNotFoundException {
+        Route routeById = routeRepository.findById(routeId).orElseThrow(() -> new RouteNotFoundException("Route Not Found"));
+        if (routeById!=null){
+            routeRepository.updateRoute(routeId);
         }
     }
 }

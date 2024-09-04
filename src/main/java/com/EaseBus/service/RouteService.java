@@ -11,4 +11,6 @@ public interface RouteService {
     List<Route> getAll();
 
     void deleteRouteById(int routeId) throws RouteNotFoundException;
+
+    Route updateRouteById(Integer routeId) throws RouteNotFoundException;
 }
